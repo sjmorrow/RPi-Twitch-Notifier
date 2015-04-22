@@ -1,0 +1,22 @@
+{
+  "name": "RPi-Twitch-Notifier",
+  "version": "1.0.0",
+  "description": "Simple Node.js app that toggles a raspberry pi GPIO pin during certain twitch chat events",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sjmorrow/RPi-Twitch-Notifier.git"
+  },
+  "author": "Stephen Morrow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjmorrow/RPi-Twitch-Notifier/issues"
+  },
+  "homepage": "https://github.com/sjmorrow/RPi-Twitch-Notifier",
+  "dependencies": {
+    "pi-gpio": "0.0.7"
+  }
+}
