@@ -7,12 +7,16 @@ gpio.open(pin, "output", function(err) {     // Open pin 16 for output
 });
 
 function turnOn() {
+    console.log('Turning LED On');
     gpio.write(pin, 1, function() {          // Set pin 16 high (1) 
+        console.log('LED is On');
         setTimeout(turnOff, 1000);
     });
 }
 function turnOff() {
+    console.log('Turning LED Off');
     gpio.write(pin, 0, function() {          // Set pin 16 high (1) 
+        console.log('Turning LED Off');
         setTimeout(turnOn, 1000);
     });
 }
