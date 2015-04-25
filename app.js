@@ -1,24 +1,31 @@
 var gpio = require("pi-gpio");
+var irc = require('twitch-irc');
 
 var pin = 7;
+var clientOptions = {
+    options: {
+        debug: true,
+        debugIgnore: ['ping', 'chat', 'action']
+    },
+    channels: ['MarriedGaming']
+}
+var client = new irc.client(clientOptions);
+client.connect();
  
 gpio.open(pin, "output", function(err) {     // Open pin 16 for output 
-    turnOn();
+    client.addListener('chat', function (channel, user, message) {
+        console.log(user.username + ': ' + message);
+        turnOn();
+    });
 });
 
 function turnOn() {
-    console.log('Turning LED On');
     gpio.write(pin, 1, function() {          // Set pin 16 high (1) 
-        console.log('LED is On');
-        setTimeout(turnOff, 1000);
+        setTimeout(turnOff, 3000);
     });
 }
 function turnOff() {
-    console.log('Turning LED Off');
-    gpio.write(pin, 0, function() {          // Set pin 16 high (1) 
-        console.log('Turning LED Off');
-        setTimeout(turnOn, 1000);
-    });
+    gpio.write(pin, 0);
 }
 
 process.stdin.resume();//so the program will not close instantly

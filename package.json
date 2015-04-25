@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sjmorrow/RPi-Twitch-Notifier",
   "dependencies": {
-    "pi-gpio": "0.0.7"
+    "pi-gpio": "0.0.7",
+    "twitch-irc": "^1.2.7"
   }
 }
